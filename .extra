@@ -1,0 +1,32 @@
+GIT_AUTHOR_NAME="Oleg Janeiko"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="jneiku@gmail.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+function git_current_branch() {
+    git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
+}
+
+alias gst='git status'
+alias gup='git pull && git submodule update --init'
+alias gpp='gup && git push'
+alias gpthis='git push origin HEAD:$(git_current_branch)'
+alias gitlg='git log --pretty=format:"%Cred%h%Creset - %Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset"'
+alias shipit='time (gup && bundle install --local && rake db:migrate && rake spec jasmine:ci && git push)'
+alias resetauthor='git ci --amend --reset-author -C HEAD'
+
+alias ga='git add -A'
+alias gcm='git commit'
+alias gd='git diff'
+alias gdh='git diff head'
+alias gs='git stash'
+alias gsp='git stash pop'
+alias rkdbm='rake db:migrate db:test:prepare'
+
+alias show='ps -ef | grep -v grep | grep $1'
+
+alias work='cd ~/workspace'
+
+alias server_list='grep -v "*" ~/.ssh/config | grep "Host "'
