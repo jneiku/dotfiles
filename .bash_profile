@@ -1,6 +1,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
-export NVM_DIR="/Users/ianeiko/.nvm"
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -14,10 +16,7 @@ unset file;
 # shopt -s nocaseglob;
 
 # Append to the Bash history file, rather than overwriting it
-# shopt -s histappend;
-
-# Autocorrect typos in path names when using `cd`
-# shopt -s cdspell;
+shopt -s histappend;
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
@@ -27,27 +26,24 @@ unset file;
 # done;
 
 # Add tab completion for many Bash commands
-# if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-# 	source "$(brew --prefix)/share/bash-completion/bash_completion";
-# elif [ -f /etc/bash_completion ]; then
-# 	source /etc/bash_completion;
-# fi;
+if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+ source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+ source /etc/bash_completion;
+fi;
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-# if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-# 	complete -o default -o nospace -F _git g;
-# fi;
-
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-# [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
-
-# Add tab completion for `defaults read|write NSGlobalDomain`
-# You could just use `-g` instead, but I like being explicit
-# complete -W "NSGlobalDomain" defaults;
-
-# Add `killall` tab completion for common apps
-# complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
-
+# rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# nvm
+export NVM_DIR="/Users/ojaneiko/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# python 3
+alias python='python3'
+
+# z
+~/z.sh
+
+# brew
+export PATH="/usr/local/sbin:$PATH"

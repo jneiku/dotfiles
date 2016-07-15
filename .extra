@@ -10,7 +10,7 @@ function git_current_branch() {
 }
 
 alias gst='git status'
-alias gup='git pull && git submodule update --init'
+alias gup='git pull --rebase'
 alias gpp='gup && git push'
 alias gpthis='git push origin HEAD:$(git_current_branch)'
 alias gitlg='git log --pretty=format:"%Cred%h%Creset - %Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset"'
@@ -28,5 +28,5 @@ alias rkdbm='rake db:migrate db:test:prepare'
 alias show='ps -ef | grep -v grep | grep $1'
 
 alias work='cd ~/workspace'
-
 alias server_list='grep -v "*" ~/.ssh/config | grep "Host "'
+alias cat=ccat
