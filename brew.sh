@@ -102,6 +102,9 @@ brew install zopfli
 
 # additional tools
 brew install tree
+brew intall macvim
+brew install ccat
+brew install the_silver_searcher
 
 # Remove outdated versions from the cellar.
 brew cleanup

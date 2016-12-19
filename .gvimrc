@@ -1,9 +1,9 @@
-" Use the Solarized Dark theme
+" set theme
 set background=dark
-colorscheme solarized
-" Use 14pt Monaco
+colorscheme material-theme
+
+" set options
 set guifont=Monaco:h14
-" Don’t blink cursor in normal mode
+set nowrap
+set expandtab
 set guicursor=n:blinkon0
-" Better line-height
-set linespace=8

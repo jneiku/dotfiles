@@ -43,7 +43,7 @@ export NVM_DIR="/Users/ojaneiko/.nvm"
 alias python='python3'
 
 # z
-~/z.sh
+. ~/z.sh
 
 # brew
 export PATH="/usr/local/sbin:$PATH"
